@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: finanzas-grupo3-backend
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/BackEnd-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: JDBC_DATABASE_URL
+        value: "jdbc:mysql://localhost:3306/finanzas_grupo3"
+      - key: JDBC_DATABASE_USERNAME
+        value: "usuario"
+      - key: JDBC_DATABASE_PASSWORD
+        value: "contraseña"
